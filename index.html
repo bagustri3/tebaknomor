@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Loading Page</title>
+</head>
+<body>
+    <!--LOADING PAGE-->
+    <div id="app" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    </div>
+    <!--FUNCTION LOADING PAGE-->
+    <script>
+        onload = function(){
+            // declaring variable
+            let id = document.getElementById("app")
+            let loading = document.createElement("div")
+            let page = document.getElementById("style3")
+
+            // fill content
+            loading.textContent = "Loading"
+            loading.style.fontSize = "30px"
+            id.appendChild(loading)
+
+            // dalam waktu berapa lama dilakukan perubahan DOM
+            let loaded = setInterval(() => {
+                loading.textContent = loading.textContent + "."
+            }, 1000)
+            // hentikan interval ketika 4sec
+            setTimeout(() => {
+                clearInterval(loaded)
+                loading.textContent = "Welcome To Our Page"
+            }, 4500)
+            // menghilangkan loading page
+            setTimeout(() => {
+                id.style.display = "none"
+                page.style.display = "flex"   
+            }, 6000)
+            
+        }
+    </script>
+    <div id="style3" style="display:none;">
+        <h1 style="position: absolute; top: 0; left: 50px; color: rgb(58, 58, 58); font-size: 50px;">VISITOR</h1>
+        <div id="style2" class="style1">
+            <h1 id="input" style="color: rgb(196, 196, 196);"> Masuk </h1>
+            <div id="style2"> 
+                <form>
+                    <input type="text" placeholder="Nama pengguna">
+                    <input type="password" placeholder="Kata sandi"> 
+                    <input type="button" value="Masuk">
+                    <p>belum memiliki akun?</p>
+                    <input type="button" value="registrasi">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
